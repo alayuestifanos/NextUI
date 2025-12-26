@@ -25,7 +25,7 @@ export default function CollapsibleRace({
         onClick={() => setOpen(!open)}
         className={`w-full flex items-start justify-between px-4 py-2
           text-white font-semibold text-sm transition-colors
-          ${open ? 'bg-green-500' : 'bg-red-600'}
+          ${open ? 'bg-[#38B349]' : 'bg-[#B5280C]'}
         `}
       >
         <div className='flex flex-col text-left'>
@@ -34,11 +34,15 @@ export default function CollapsibleRace({
         </div>
 
         {/* Plus / Minus */}
-        {open ? <Minus className='w-5 h-5' /> : <Plus className='w-5 h-5' />}
+        {open ? (
+          <Minus className='w-5 h-5 text-white' />
+        ) : (
+          <Plus className='w-5 h-5 text-white' />
+        )}
       </button>
 
       {/* Content */}
-      {open && <div className='p-2'>{children}</div>}
+      {open && <div className='py-2'>{children}</div>}
     </div>
   )
 }

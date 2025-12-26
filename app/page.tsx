@@ -3,21 +3,20 @@ import RaceCard from '@/components/RaceCard'
 
 export default function Home() {
   return (
-    <main className='py-6 space-y-4 ml-6 min-h-screen w-[75%]'>
-      <div className='flex p-2 text-xs font-semibold'>
-        {['MAIN', 'ALT', 'HEAD TO HEAD', 'SUM'].map((tab) => (
+    <main className='py-6 space-y-4 ml-6 min-h-screen w-[80%]'>
+      <div className='inline-flex   overflow-hidden text-xs font-semibold'>
+        {['MAIN', 'ALT', 'HEAD TO HEAD', 'SUM'].map((tab, idx) => (
           <button
             key={tab}
-            className={`px-3 py-1 rounded ${
-              tab === 'MAIN'
-                ? 'bg-green-500 text-white'
-                : 'border text-gray-600'
-            }`}
+            className={`px-3 py-2 text-center cursor-pointer ${
+              tab === 'MAIN' ? 'bg-[#36B250] text-white' : 'text-gray-600'
+            } ${idx !== 0 ? 'border border-[#36B250]' : ' border-collapse'}`}
           >
             {tab}
           </button>
         ))}
       </div>
+
       <CollapsibleRace
         title='10:11 CRAWFORD PARK (DAY) 360'
         subtitle='ID 2045'
