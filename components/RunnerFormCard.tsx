@@ -1,15 +1,6 @@
 import Image from 'next/image'
 
-type RunnerFormCardProps = {
-  horse: {
-    name: string
-    image: any
-    rating: number
-    last5: string
-  }
-}
-
-export default function RunnerFormCard({ horse }: RunnerFormCardProps) {
+export default function RunnerFormCard({ horse }) {
   const last5 = horse.last5.split(',').map(Number)
 
   return (

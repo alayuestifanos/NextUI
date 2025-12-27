@@ -17,18 +17,13 @@ export default function Home() {
         ))}
       </div>
 
-      <CollapsibleRace
-        title='10:11 CRAWFORD PARK (DAY) 360'
-        subtitle='ID 2045'
-        color='green'
-      >
+      <CollapsibleRace title='10:11 CRAWFORD PARK (DAY) 360' subtitle='ID 2045'>
         <RaceCard />
       </CollapsibleRace>
 
       <CollapsibleRace
         title='LIVE 10:21 CRAWFORD PARK (NIGHT) 720'
         subtitle='ID 2046'
-        color='red'
       >
         <RaceCard />
       </CollapsibleRace>
@@ -36,7 +31,6 @@ export default function Home() {
       <CollapsibleRace
         title='09:37 / 10:31 SUMMERSET PARK 720'
         subtitle='ID 2047'
-        color='green'
       >
         <RaceCard />
       </CollapsibleRace>
