@@ -14,7 +14,7 @@ interface BankBadgeProps {
 
 export default function BankBadge({
   value,
-  bgColor = 'bg-amber-300',
+  bgColor = 'bg-[#FFFDD7]',
   borderColor = 'border-green-700',
   textColor = 'text-gray-500',
   iconColor,

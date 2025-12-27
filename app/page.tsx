@@ -3,7 +3,7 @@ import RaceCard from '@/components/RaceCard'
 
 export default function Home() {
   return (
-    <main className='py-6 space-y-4 ml-6 min-h-screen w-[80%]'>
+    <main className='py-6 space-y-4 ml-6 min-h-screen w-[75%]'>
       <div className='inline-flex   overflow-hidden text-xs font-semibold'>
         {['MAIN', 'ALT', 'HEAD TO HEAD', 'SUM'].map((tab, idx) => (
           <button
