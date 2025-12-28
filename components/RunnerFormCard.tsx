@@ -4,7 +4,7 @@ export default function RunnerFormCard({ horse }) {
   const last5 = horse.last5.split(',').map(Number)
 
   return (
-    <div className='w-[200px] bg-white p-4 shadow-2xl border border-gray-100 rounded-lg relative overflow-hidden'>
+    <div className='w-[200px] bg-white p-4 shadow-2xl border border-gray-100 rounded-lg relative'>
       {/* Header */}
       <div className='flex flex-col items-start gap-2 mb-3 pr-4'>
         <div className='shrink-0  p-1'>
@@ -24,7 +24,7 @@ export default function RunnerFormCard({ horse }) {
       </div>
 
       {/* Chart Area with Padding for Vertical Label */}
-      <div className='space-y-6 pr-8'>
+      <div className='space-y-6 pr-10 relative'>
         {last5.map((len, i) => (
           <div key={i} className='relative h-6'>
             {/* Solid Green Bar background */}
@@ -69,11 +69,11 @@ export default function RunnerFormCard({ horse }) {
             </div>
           </div>
         ))}
-      </div>
 
-      {/* Vertical Side Label */}
-      <div className='absolute right-[-115px] top-1/2 -translate-y-1/2 rotate-90 text-[9px] font-bold text-gray-300 uppercase tracking-widest whitespace-nowrap w-64 text-center'>
-        Length Behind Winner
+        {/* Vertical Side Label centered relative to the lines */}
+        <div className='absolute right-[-90px] top-1/2 -translate-y-1/2 rotate-90 text-[14px] font-bold text-gray-500 capitalize tracking-widest whitespace-nowrap w-48 text-center'>
+          Length Behind Winner
+        </div>
       </div>
     </div>
   )

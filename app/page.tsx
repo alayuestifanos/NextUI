@@ -8,9 +8,8 @@ export default function Home() {
         {['MAIN', 'ALT', 'HEAD TO HEAD', 'SUM'].map((tab, idx) => (
           <button
             key={tab}
-            className={`px-3 py-2 text-center cursor-pointer ${
-              tab === 'MAIN' ? 'bg-[#36B250] text-white' : 'text-gray-600'
-            } ${idx !== 0 ? 'border border-[#36B250]' : ' border-collapse'}`}
+            className={`px-3 py-2 text-center cursor-pointer border border-[#36B250] ${tab === 'MAIN' ? 'bg-[#36B250] text-white' : 'text-gray-600'
+              } ${idx !== 0 ? '-ml-[1px]' : ''}`}
           >
             {tab}
           </button>
