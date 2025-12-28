@@ -27,9 +27,9 @@ export default function BankBadge({
         className={`absolute top-0 right-0  w-4 h-4 font-bold -translate-y-1/2 translate-x-1/2 text-[#B0B192] ${iconColor}`}
       /> */}
       <IoIosLock
-        className={`absolute top-0 right-0  w-4 h-4 font-bold -translate-y-1/2 translate-x-1/2 text-[#B0B192] ${iconColor}`}
+        className={`absolute top-0 right-0 w-4 h-4 font-bold -translate-y-1/2 translate-x-1/2 text-[#464148] ${iconColor || ''}`}
       />
-      <p className={`${textColor}`}>{value}</p>
+      <p className={`${textColor} text-center`}>{value}</p>
     </div>
   )
 }
