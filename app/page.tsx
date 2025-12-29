@@ -53,7 +53,7 @@ export default function Home() {
       </div>
 
       {raceData.map((race, index) => (
-        <CollapsibleRace key={index} title={race.title} subtitle={race.subtitle} defaultOpen={index === 0}>
+        <CollapsibleRace key={index} title={race.title} subtitle={race.subtitle} defaultOpen={true}>
           <RaceCard horses={race.horses} />
         </CollapsibleRace>
       ))}

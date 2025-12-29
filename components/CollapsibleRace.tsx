@@ -42,7 +42,18 @@ export default function CollapsibleRace({
       </button>
 
       {/* Content */}
-      {open && <div className='py-2'>{children}</div>}
+      <div className="perspective-[1000px]">
+        <div
+          className={`py-2 transition-all duration-700 ease-in-out origin-center
+      ${open
+              ? '[transform:scaleY(1)_rotateX(0deg)] opacity-100 scale-100 h-auto'
+              : '[transform:scaleY(0)_rotateX(0.01deg)] opacity-0 scale-95 h-0 overflow-hidden'}
+    `}
+        >
+          {children}
+        </div>
+      </div>
+
     </div>
   )
 }

@@ -150,8 +150,7 @@ export default function RaceCard({ horses }: RaceCardProps) {
         </div>
       </div>
 
-      {/* ✅ POPUP VIA PORTAL */}
-      {hovered &&
+      {hovered && hovered.rect &&
         createPortal(
           <div
             className='fixed z-[9999]'
