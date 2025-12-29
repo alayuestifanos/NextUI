@@ -25,7 +25,7 @@ export default function BetActions() {
       </div>
 
       {/* Clear */}
-      <button className='w-fit flex items-center gap-2 bg-red-200 text-white px-4 py-2 text-sm font-semibold hover:bg-red-300 transition'>
+      <button className='cursor-pointer w-fit flex items-center gap-2 bg-red-200 text-white px-4 py-2 text-sm font-semibold hover:bg-red-300 transition'>
         CLEAR
         <Trash2 size={16} />
       </button>

@@ -35,9 +35,9 @@ export default function CollapsibleRace({
 
         {/* Plus / Minus */}
         {open ? (
-          <Minus className='w-5 h-5 text-white' />
+          <Minus className='w-5 h-5 text-white' strokeWidth={3} />
         ) : (
-          <Plus className='w-5 h-5 text-white' />
+          <Plus className='w-5 h-5 text-white' strokeWidth={3} />
         )}
       </button>
 

@@ -3,111 +3,29 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
 
+import type { StaticImageData } from 'next/image'
 import BankBadge from './BankBage'
-import raceguimarkers01 from '@/public/raceguimarkers01.png'
-import raceguimarkers02 from '@/public/raceguimarkers02.png'
-import raceguimarkers03 from '@/public/raceguimarkers03.png'
-import raceguimarkers04 from '@/public/raceguimarkers04.png'
-import raceguimarkers05 from '@/public/raceguimarkers05.png'
-import raceguimarkers06 from '@/public/raceguimarkers06.png'
-import raceguimarkers07 from '@/public/raceguimarkers07.png'
-import raceguimarkers08 from '@/public/raceguimarkers08.png'
 import BetActions from './BetActions'
 import RunnerFormCard from './RunnerFormCard'
 
-const horses = [
-  {
-    box: 1,
-    name: 'Mirage',
-    rating: 3,
-    last5: '4,2,2,6,4',
-    win: '7.15',
-    place: '2.23',
-    combo: '3.4',
-    bank: '10.00',
-    image: raceguimarkers01,
-  },
-  {
-    box: 2,
-    name: 'Autumn Storm',
-    rating: 4,
-    last5: '1,3,6,2,8',
-    win: '3.00',
-    place: '1.56',
-    flag: 'F1',
-    combo: '3.4',
-    bank: '10.00',
-    image: raceguimarkers02,
-  },
-  {
-    box: 3,
-    name: 'Pepperoni',
-    rating: 2,
-    last5: '6,2,7,6,5',
-    win: '16.54',
-    place: '3.14',
-    combo: '3.4',
-    bank: '10.00',
-    image: raceguimarkers03,
-  },
-  {
-    box: 4,
-    name: 'Pepperoni',
-    rating: 3,
-    last5: '6,2,7,6,5',
-    win: '16.54',
-    place: '2.58',
-    combo: '3.4',
-    bank: '10.00',
-    image: raceguimarkers04,
-  },
-  {
-    box: 5,
-    name: 'Pepperoni',
-    rating: 1,
-    last5: '6,2,7,6,5',
-    win: '16.54',
-    place: '3.14',
-    combo: '3.4',
-    bank: '10.00',
-    image: raceguimarkers05,
-  },
-  {
-    box: 6,
-    name: 'Pepperoni',
-    rating: 4,
-    last5: '6,2,7,6,5',
-    win: '16.54',
-    place: '3.14',
-    combo: '3.4',
-    bank: '10.00',
-    image: raceguimarkers06,
-  },
-  {
-    box: 7,
-    name: 'Pepperoni',
-    rating: 3,
-    last5: '6,2,7,6,5',
-    win: '16.54',
-    place: '3.14',
-    combo: '3.4',
-    bank: '10.00',
-    image: raceguimarkers07,
-  },
-  {
-    box: 8,
-    name: 'Pepperoni',
-    rating: 5,
-    last5: '6,2,7,6,5',
-    win: '16.54',
-    place: '3.14',
-    combo: '3.4',
-    bank: '10.00',
-    image: raceguimarkers08,
-  },
-]
+export interface Horse {
+  box: number
+  name: string
+  rating: number
+  last5: string
+  win: string
+  place: string
+  combo: string
+  bank: string
+  image: StaticImageData
+  flag?: string
+}
 
-export default function RaceCard() {
+interface RaceCardProps {
+  horses: Horse[]
+}
+
+export default function RaceCard({ horses }: RaceCardProps) {
   const [hovered, setHovered] = useState(null)
 
   return (
@@ -147,7 +65,7 @@ export default function RaceCard() {
                 className='border-b border-gray-200 text-sm hover:bg-gray-50'
               >
                 <td className='px-3 py-2 flex items-center gap-2 shrink-0'>
-                  <span className='text-lg font-bold'>{horse.box}</span>
+                  <span className='text-lg text-gray-400 font-bold'>{horse.box}</span>
                   <Image
                     src={horse.image}
                     alt=''
@@ -158,7 +76,7 @@ export default function RaceCard() {
                 </td>
 
                 <td className='w-[10%] py-2'></td>
-                <td className='px-3 py-2 whitespace-nowrap'>{horse.name}</td>
+                <td className='px-3 py-2 whitespace-nowrap text-gray-500 font-bold'>{horse.name}</td>
                 <td className='w-[70%] py-2'></td>
                 <td className='w-10 py-2 text-center whitespace-nowrap'>
                   {horse.flag && (
@@ -169,17 +87,17 @@ export default function RaceCard() {
                 </td>
                 <td className='w-[20%] py-2'></td>
                 <td
-                  className='px-0.5 py-2 whitespace-nowrap'
+                  className='px-0.5 py-2 whitespace-nowrap cursor-pointer'
                   onMouseEnter={(e) => {
                     const rect = e.currentTarget.getBoundingClientRect()
                     setHovered({ horse, rect })
                   }}
                   onMouseLeave={() => setHovered(null)}
                 >
-                  <span className='text-green-600'>
+                  <span className='text-green-600 text-xl'>
                     {'★'.repeat(horse.rating)}
                   </span>
-                  <span className='text-gray-300'>
+                  <span className='text-gray-300 text-xl'>
                     {'★'.repeat(5 - horse.rating)}
                   </span>
                 </td>

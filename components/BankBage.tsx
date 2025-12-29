@@ -21,7 +21,7 @@ export default function BankBadge({
 }: BankBadgeProps) {
   return (
     <div
-      className={`relative inline-block min-w-[64px] py-1 px-2 font-semibold rounded border-2 ${bgColor} ${borderColor}`}
+      className={`cursor-pointer relative inline-block min-w-[50px] py-0.5 px-0.5 font-semibold rounded border-2 ${bgColor} ${borderColor}`}
     >
       {/* <Lock
         className={`absolute top-0 right-0  w-4 h-4 font-bold -translate-y-1/2 translate-x-1/2 text-[#B0B192] ${iconColor}`}
