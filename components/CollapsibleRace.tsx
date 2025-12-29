@@ -25,7 +25,7 @@ export default function CollapsibleRace({
         onClick={() => setOpen(!open)}
         className={`w-full flex items-start justify-between px-4 py-2
           text-white font-semibold text-sm transition-colors
-          ${open ? 'bg-[#38B349]' : 'bg-[#B5280C]'}
+          ${open ? 'bg-[#37b34a]' : 'bg-[#b5280c]'}
         `}
       >
         <div className='flex flex-col text-left'>

@@ -12,14 +12,14 @@ import raceguimarkers07 from '@/public/raceguimarkers07.png'
 import raceguimarkers08 from '@/public/raceguimarkers08.png'
 
 const defaultHorses = [
-  { box: 1, name: 'Mirage', rating: 3, last5: '4,2,2,6,4', win: '7.15', place: '2.23', combo: '3.4', bank: '10.00', image: raceguimarkers01 },
-  { box: 2, name: 'Autumn Storm', rating: 4, last5: '1,3,6,2,8', win: '3.00', place: '1.56', flag: 'F1', combo: '3.4', bank: '10.00', image: raceguimarkers02 },
-  { box: 3, name: 'Pepperoni', rating: 2, last5: '6,2,7,6,5', win: '16.54', place: '3.14', combo: '3.4', bank: '10.00', image: raceguimarkers03 },
-  { box: 4, name: 'Pepperoni', rating: 3, last5: '6,2,7,6,5', win: '16.54', place: '2.58', combo: '3.4', bank: '10.00', image: raceguimarkers04 },
-  { box: 5, name: 'Pepperoni', rating: 1, last5: '6,2,7,6,5', win: '16.54', place: '3.14', combo: '3.4', flag: 'F2', bank: '10.00', image: raceguimarkers05 },
-  { box: 6, name: 'Pepperoni', rating: 4, last5: '6,2,7,6,5', win: '16.54', place: '3.14', combo: '3.4', bank: '10.00', image: raceguimarkers06 },
-  { box: 7, name: 'Pepperoni', rating: 3, last5: '6,2,7,6,5', win: '16.54', place: '3.14', flag: 'F3', combo: '3.4', bank: '10.00', image: raceguimarkers07 },
-  { box: 8, name: 'Pepperoni', rating: 5, last5: '6,2,7,6,5', win: '16.54', place: '3.14', combo: '3.4', bank: '10.00', image: raceguimarkers08 },
+  { box: 1, name: 'Mirage', rating: 65, last5: '4,2,2,6,4', win: '7.15', place: '2.23', combo: '3.4', bank: '10.00', image: raceguimarkers01 },
+  { box: 2, name: 'Autumn Storm', rating: 85, last5: '1,3,6,2,8', win: '3.00', place: '1.56', flag: 'F1', combo: '3.4', bank: '10.00', image: raceguimarkers02 },
+  { box: 3, name: 'Pepperoni', rating: 42, last5: '6,2,7,6,5', win: '16.54', place: '3.14', combo: '3.4', bank: '10.00', image: raceguimarkers03 },
+  { box: 4, name: 'Pepperoni', rating: 72, last5: '6,2,7,6,5', win: '16.54', place: '2.58', combo: '3.4', bank: '10.00', image: raceguimarkers04 },
+  { box: 5, name: 'Pepperoni', rating: 15, last5: '6,2,7,6,5', win: '16.54', place: '3.14', combo: '3.4', flag: 'F2', bank: '10.00', image: raceguimarkers05 },
+  { box: 6, name: 'Pepperoni', rating: 92, last5: '6,2,7,6,5', win: '16.54', place: '3.14', combo: '3.4', bank: '10.00', image: raceguimarkers06 },
+  { box: 7, name: 'Pepperoni', rating: 55, last5: '6,2,7,6,5', win: '16.54', place: '3.14', flag: 'F3', combo: '3.4', bank: '10.00', image: raceguimarkers07 },
+  { box: 8, name: 'Pepperoni', rating: 100, last5: '6,2,7,6,5', win: '16.54', place: '3.14', combo: '3.4', bank: '10.00', image: raceguimarkers08 },
 ]
 
 const raceData = [

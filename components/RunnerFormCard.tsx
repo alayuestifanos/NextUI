@@ -18,8 +18,10 @@ export default function RunnerFormCard({ horse }) {
       {/* Rating */}
       <div className='flex items-center gap-0.5 text-xs mb-4'>
         <div className='flex text-green-600'>
-          {'★'.repeat(horse.rating)}
-          <span className='text-gray-200'>{'★'.repeat(5 - horse.rating)}</span>
+          {'★'.repeat(Math.round(horse.rating / 20))}
+          <span className='text-gray-200'>
+            {'★'.repeat(5 - Math.round(horse.rating / 20))}
+          </span>
         </div>
       </div>
 
@@ -33,6 +35,7 @@ export default function RunnerFormCard({ horse }) {
             </div>
 
             {/* Decimal Label on the Right */}
+            {/* todo */}
             <div className='absolute right-0 top-1/2 -translate-y-1/2 text-[10px] font-bold text-gray-400'>
               {len.toFixed(1)}
             </div>

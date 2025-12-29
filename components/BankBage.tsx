@@ -14,14 +14,14 @@ interface BankBadgeProps {
 
 export default function BankBadge({
   value,
-  bgColor = 'bg-[#FFFDD7]',
+  bgColor = 'bg-[#ffff8099]',
   borderColor = 'border-green-700',
-  textColor = 'text-gray-500',
+  textColor = 'text-[#111111b3]',
   iconColor,
 }: BankBadgeProps) {
   return (
     <div
-      className={`cursor-pointer relative inline-block min-w-[50px] py-0.5 px-0.5 font-semibold rounded border-2 ${bgColor} ${borderColor}`}
+      className={`relative inline-block min-w-[50px] py-0.5 px-0.5 font-semibold rounded border-2 ${bgColor} ${borderColor} cursor-not-allowed`}
     >
       {/* <Lock
         className={`absolute top-0 right-0  w-4 h-4 font-bold -translate-y-1/2 translate-x-1/2 text-[#B0B192] ${iconColor}`}
