@@ -3,34 +3,30 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
 
-import type { StaticImageData } from 'next/image'
+
 import BankBadge from './BankBage'
 import BetActions from './BetActions'
 import RunnerFormCard from './RunnerFormCard'
 
-export interface Horse {
-  box: number
-  name: string
-  rating: number
-  last5: string
-  win: string
-  place: string
-  combo: string
-  bank: string
-  image: StaticImageData
-  flag?: string
-}
+import raceguimarkers01 from '@/public/raceguimarkers01.png'
+import raceguimarkers02 from '@/public/raceguimarkers02.png'
+import raceguimarkers03 from '@/public/raceguimarkers03.png'
+import raceguimarkers04 from '@/public/raceguimarkers04.png'
+import raceguimarkers05 from '@/public/raceguimarkers05.png'
+import raceguimarkers06 from '@/public/raceguimarkers06.png'
+import raceguimarkers07 from '@/public/raceguimarkers07.png'
+import raceguimarkers08 from '@/public/raceguimarkers08.png'
 
-interface RaceCardProps {
-  horses: Horse[]
-}
+const images = [raceguimarkers01, raceguimarkers02, raceguimarkers03, raceguimarkers04, raceguimarkers05, raceguimarkers06, raceguimarkers07, raceguimarkers08]
 
-export default function RaceCard({ horses }: RaceCardProps) {
+
+
+export default function RaceCard({ horses, type }: { horses: any[], type?: string }) {
   const [hovered, setHovered] = useState(null)
 
   return (
     <>
-      <div className='bg-[#FCFCFC] flex gap-2 max-w-full overflow-x-auto'>
+      <div className='flex gap-2 max-w-full overflow-x-auto'>
         <table className='w-full min-w-[600px] table-auto border-collapse'>
           <thead className='text-xs font-semibold text-gray-500'>
             <tr>
@@ -62,14 +58,14 @@ export default function RaceCard({ horses }: RaceCardProps) {
           <tbody>
             {horses.map((horse, index) => (
               <tr
-                key={horse.box}
-                className='border-b border-gray-200 text-sm hover:bg-gray-50'
+                key={horse["FeedId"]}
+                className='border-b border-gray-200 text-sm '
               >
                 <td className='px-3 flex items-center gap-2 shrink-0'>
-                  <span className='text-lg text-gray-400 font-bold'>{horse.box}</span>
+                  <span className='text-lg text-gray-400 font-bold'>{horse["Draw"]}</span>
                   <Image
-                    src={horse.image}
-                    alt=''
+                    src={images[index]}
+                    alt='this is alt'
                     width={36}
                     height={36}
                     className='shrink-0'
@@ -77,12 +73,12 @@ export default function RaceCard({ horses }: RaceCardProps) {
                 </td>
 
                 <td className='w-[10%] '></td>
-                <td className='px-3  font-light text-base text-[#727272] '>{horse.name}</td>
+                <td className='px-3  font-light text-base text-[#727272] '>{horse["Name"]}</td>
                 <td className='w-[70%] '></td>
                 <td className='w-10  text-center '>
-                  {horse.flag && (
+                  {horse["Favorite"] && (
                     <span className='inline-block text-white border border-white bg-[#ff6100] rounded-full w-[15px] h-[15px] p-[4px] text-[0.8em] text-center box-content'>
-                      {horse.flag}
+                      {`F${horse["Favorite"]}`}
                     </span>
                   )}
                 </td>
@@ -96,18 +92,21 @@ export default function RaceCard({ horses }: RaceCardProps) {
                   onMouseLeave={() => setHovered(null)}
                 >
                   <span className='text-green-600 text-xl'>
-                    {'★'.repeat(Math.round(horse.rating / 20))}
+                    {'★'.repeat(Math.round(horse["StarRating"] / 20))}
                   </span>
                   <span className='text-gray-300 text-xl'>
-                    {'★'.repeat(5 - Math.round(horse.rating / 20))}
+                    {'★'.repeat(5 - Math.round(horse["StarRating"] / 20))}
                   </span>
                 </td>
 
-                <td className='m-0 px-[3px] align-middle '>{horse.last5}</td>
+                <td className='m-0 px-[3px] align-middle '>{horse["Form"]}</td>
 
                 <td className='m-0 px-[3px] align-middle  '>
                   <BankBadge
-                    value={horse.win}
+                    value={horse["WinOdds"]}
+                    className={type === 'past' || type === 'next' ? 'opacity-100' : ''}
+                    showLock={type !== 'next'}
+                    disabled={type === 'next' ? false : true}
                     {...(index === 5
                       ? {
                         bgColor: 'bg-[#717171]',
@@ -121,7 +120,10 @@ export default function RaceCard({ horses }: RaceCardProps) {
 
                 <td className='m-0 px-[3px] align-middle '>
                   <BankBadge
-                    value={horse.place}
+                    value={horse["PlaceOdds"]}
+                    className={type === 'past' || type === 'next' ? 'opacity-100' : ''}
+                    showLock={type !== 'next'}
+                    disabled={type === 'next' ? false : true}
                     {...(index === 3 || index === 5 || index === 6
                       ? {
                         bgColor: 'bg-[#717171]',
@@ -134,11 +136,24 @@ export default function RaceCard({ horses }: RaceCardProps) {
                 </td>
 
                 <td className='m-0 px-[3px] align-middle  '>
-                  <BankBadge value={horse.combo} />
+                  <BankBadge
+                    value={horse["RacesSincePlace"]}
+                    className={
+                      type === 'past' ? 'opacity-100' :
+                        type === 'next' ? 'opacity-100 hover:bg-[#36B250] hover:text-white' : ''
+                    }
+                    showLock={type !== 'next'}
+                    disabled={type === 'next' ? false : true}
+                  />
                 </td>
 
                 <td className='m-0 px-[3px] align-middle  '>
-                  <BankBadge value={horse.bank} />
+                  <BankBadge
+                    value={horse["RacesSincePlace"]}
+                    className={type === 'next' ? 'opacity-100' : ''}
+                    showLock={type !== 'next'}
+                    disabled={true}
+                  />
                 </td>
               </tr>
             ))}

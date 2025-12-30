@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 export default function RunnerFormCard({ horse }) {
-  const last5 = horse.last5.split(',').map(Number)
+  const last5 = horse["Form"].split(',').map(Number)
 
   return (
     <div className='w-[200px] bg-white p-4 shadow-2xl border border-gray-100 rounded-lg relative'>
@@ -18,9 +18,9 @@ export default function RunnerFormCard({ horse }) {
       {/* Rating */}
       <div className='flex items-center gap-0.5 text-xs mb-4'>
         <div className='flex text-green-600'>
-          {'★'.repeat(Math.round(horse.rating / 20))}
+          {'★'.repeat(Math.round(horse["StarRating"] / 20))}
           <span className='text-gray-200'>
-            {'★'.repeat(5 - Math.round(horse.rating / 20))}
+            {'★'.repeat(5 - Math.round(horse["StarRating"] / 20))}
           </span>
         </div>
       </div>
