@@ -34,27 +34,27 @@ export default function RaceCard({ horses }: RaceCardProps) {
         <table className='w-full min-w-[600px] table-auto border-collapse'>
           <thead className='text-xs font-semibold text-gray-500'>
             <tr>
-              <th className='w-28 px-3 py-2 text-left'></th>
-              <th className='w-[10%] py-2'></th>
+              <th className='w-28 px-3  text-left'></th>
+              <th className='w-[10%] '></th>
               {/* for all table head font-normal p-0 uppercase text-[0.75em] text-[#4c4c4c] m-0 */}
-              <th className='px-3 py-2 text-left whitespace-nowrap '>NAME</th>
-              <th className='w-[70%] py-2'></th>
-              <th className='w-10 py-2 text-center'></th>
-              <th className='w-[20%] py-2'></th>
-              <th className='w-14 px-0.5 py-2 text-center'>RATING</th>
-              <th className='w-16 px-0.5 py-2 text-left whitespace-nowrap'>
+              <th className='px-3  text-left  '>NAME</th>
+              <th className='w-[70%] '></th>
+              <th className='w-10  text-center'></th>
+              <th className='w-[20%] '></th>
+              <th className='w-14 px-0.5  text-center'>RATING</th>
+              <th className='w-16 px-0.5  text-left '>
                 LAST 5
               </th>
-              <th className='w-20 px-1 py-2 text-center whitespace-nowrap'>
+              <th className='w-20 px-1  text-center '>
                 WIN
               </th>
-              <th className='w-20 px-1 py-2 text-center whitespace-nowrap'>
+              <th className='w-20 px-1  text-center '>
                 PLACE
               </th>
-              <th className='w-20 px-1 py-2 text-center whitespace-nowrap'>
+              <th className='w-20 px-1 py-2 text-center '>
                 COMBO
               </th>
-              <th className='w-20 px-1 py-2 text-center whitespace-nowrap'>
+              <th className='w-20 px-1  text-center '>
                 BANK
               </th>
             </tr>
@@ -65,7 +65,7 @@ export default function RaceCard({ horses }: RaceCardProps) {
                 key={horse.box}
                 className='border-b border-gray-200 text-sm hover:bg-gray-50'
               >
-                <td className='px-3 py-2 flex items-center gap-2 shrink-0'>
+                <td className='px-3 flex items-center gap-2 shrink-0'>
                   <span className='text-lg text-gray-400 font-bold'>{horse.box}</span>
                   <Image
                     src={horse.image}
@@ -76,19 +76,19 @@ export default function RaceCard({ horses }: RaceCardProps) {
                   />
                 </td>
 
-                <td className='w-[10%] py-2'></td>
-                <td className='px-3 py-2 whitespace-nowrap text-gray-500 font-bold'>{horse.name}</td>
-                <td className='w-[70%] py-2'></td>
-                <td className='w-10 py-2 text-center whitespace-nowrap'>
+                <td className='w-[10%] '></td>
+                <td className='px-3  font-light text-base text-[#727272] '>{horse.name}</td>
+                <td className='w-[70%] '></td>
+                <td className='w-10  text-center '>
                   {horse.flag && (
                     <span className='inline-block text-white border border-white bg-[#ff6100] rounded-full w-[15px] h-[15px] p-[4px] text-[0.8em] text-center box-content'>
                       {horse.flag}
                     </span>
                   )}
                 </td>
-                <td className='w-[20%] py-2'></td>
+                <td className='w-[20%] '></td>
                 <td
-                  className='m-0 px-[3px] align-middle whitespace-nowrap h-[69px]'
+                  className='m-0 px-[3px] align-middle'
                   onMouseEnter={(e) => {
                     const rect = e.currentTarget.getBoundingClientRect()
                     setHovered({ horse, rect })
@@ -103,9 +103,9 @@ export default function RaceCard({ horses }: RaceCardProps) {
                   </span>
                 </td>
 
-                <td className='m-0 px-[3px] align-middle whitespace-nowrap h-[69px]'>{horse.last5}</td>
+                <td className='m-0 px-[3px] align-middle '>{horse.last5}</td>
 
-                <td className='m-0 px-[3px] align-middle whitespace-nowrap h-[69px]'>
+                <td className='m-0 px-[3px] align-middle  '>
                   <BankBadge
                     value={horse.win}
                     {...(index === 5
@@ -119,7 +119,7 @@ export default function RaceCard({ horses }: RaceCardProps) {
                   />
                 </td>
 
-                <td className='m-0 px-[3px] align-middle whitespace-nowrap h-[69px]'>
+                <td className='m-0 px-[3px] align-middle '>
                   <BankBadge
                     value={horse.place}
                     {...(index === 3 || index === 5 || index === 6
@@ -133,11 +133,11 @@ export default function RaceCard({ horses }: RaceCardProps) {
                   />
                 </td>
 
-                <td className='m-0 px-[3px] align-middle whitespace-nowrap h-[69px]'>
+                <td className='m-0 px-[3px] align-middle  '>
                   <BankBadge value={horse.combo} />
                 </td>
 
-                <td className='m-0 px-[3px] align-middle whitespace-nowrap h-[69px]'>
+                <td className='m-0 px-[3px] align-middle  '>
                   <BankBadge value={horse.bank} />
                 </td>
               </tr>

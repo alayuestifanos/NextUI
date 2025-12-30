@@ -38,8 +38,8 @@ export default function Home() {
   }
 
   return (
-    <main className='py-6 space-y-4 ml-6 min-h-screen w-[70%]'>
-      <div className='inline-flex overflow-hidden text-xs font-semibold'>
+    <main className='py-6 space-y-4 min-h-screen w-[70%]'>
+      <div className='ml-6 inline-flex overflow-hidden text-xs font-semibold'>
         {['MAIN', 'ALT', 'HEAD TO HEAD', 'SUM'].map((tab, idx) => (
           <button
             key={tab}
