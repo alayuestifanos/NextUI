@@ -77,7 +77,7 @@ export default function RaceCard({ horses, type }: { horses: any[], type?: strin
                 </td>
 
                 <td className='w-[10%] '></td>
-                <td className='px-3 w-[20%] font-light text-base text-[#727272] '>{horse["Name"]}</td>
+                <td className='px-3 w-[20%] font-normal text-base text-[#727272] '>{horse["Name"]}</td>
                 <td className='w-[70%] '></td>
                 <td className='w-10  text-center '>
                   {horse["Favorite"] && (
@@ -88,7 +88,7 @@ export default function RaceCard({ horses, type }: { horses: any[], type?: strin
                 </td>
                 <td className='w-[20%] '></td>
                 <td
-                  className='m-0 px-[3px] align-middle'
+                  className='m-0 px-[3px] align-middle cursor-pointer'
                   onMouseEnter={(e) => {
                     const rect = e.currentTarget.getBoundingClientRect()
                     setHovered({ horse, rect })
@@ -104,6 +104,18 @@ export default function RaceCard({ horses, type }: { horses: any[], type?: strin
                 </td>
 
                 <td className='m-0 px-[3px] align-middle '>{horse["Form"]}</td>
+                {/* <td className="m-0 px-[3px] align-middle">
+  <div className="flex gap-1">
+    {horse.Form.split(',').map((num, i) => (
+      <span
+        key={i}
+        className="cursor-pointer hover:text-green-600"
+      >
+        {num}
+      </span>
+    ))}
+  </div>
+</td> */}
 
                 <td className='m-0 px-[3px] align-middle  '>
                   <BankBadge
