@@ -4,9 +4,10 @@ import React, { useState } from "react";
 
 
 const AnimatingIcon = ({ open, type }: { open: boolean, type: string }) => {
-  const barColor = type === "past" ? 'bg-black' :
-    type === "next" ? 'bg-black' :
-      'bg-white';
+  const barColor = type === "past" ? 'bg-[#727272]' :
+    type === "next" ? 'bg-[#727272]' :
+      (type === "upcomming") && !open ? 'bg-[#37b34a]' :
+        'bg-white';
 
   return (
     <div className="relative w-2.5 h-2.5 flex items-center justify-center">
@@ -30,16 +31,20 @@ export default function CollapsibleRace({
 }) {
   const [open, setOpen] = useState(defaultOpen)
 
+  const isUpcoming = ["upcoming", "upcomming"].includes(type) || ["upcoming", "upcomming"].includes(horses?.["type"]);
+  const isPastOrNext = type === "past" || horses?.["type"] === "past" || type === "next" || horses?.["type"] === "next";
+  const isLive = type === "live" || horses?.["type"] === "live";
+
   return (
-    <div className='ml-3 overflow-hidden  bg-white'>
+    <div className='overflow-hidden bg-white'>
       {/* Header */}
       <button
         onClick={() => setOpen(!open)}
         className={`w-full flex items-start justify-between pl-1 pr-4 py-1
-          font-semibold text-sm transition-colors
-          ${!open ? (type === "past" || horses?.["type"] === "past" || type === "next" || horses?.["type"] === "next" ? 'bg-white text-gray-800' : 'bg-[#b5280c] text-white') :
-            type === "live" || horses?.["type"] === "live" || type === "past" || horses?.["type"] === "past" || type === "next" || horses?.["type"] === "next" ? 'bg-[#37b34a] text-white' :
-              'bg-[#3b82f6] text-white' // upcoming as default
+          font-semibold text-sm transition-colors border-t border-b border-black/10
+          ${!open
+            ? (isPastOrNext || isUpcoming ? 'bg-white text-gray-800' : 'bg-[#b5280c] text-white')
+            : (isLive || isPastOrNext || isUpcoming ? 'bg-[#37b34a] text-white' : 'bg-[#3b82f6] text-white')
           }
         `}
       >
@@ -67,17 +72,19 @@ export default function CollapsibleRace({
       </button>
 
       {/* Content */}
-      <div className="perspective-[1000px]">
+      <div>
         <div
-          className={`py-2 transition-all duration-700 ease-in-out origin-center
-            ${open
-              ? '[transform:scaleY(1)_rotateX(0deg)] opacity-100 scale-100 h-auto'
-              : '[transform:scaleY(0)_rotateX(0.01deg)] opacity-0 scale-95 h-0 overflow-hidden'}
-          `}
+          className={`duration-700 ease-in-out origin-center transition-transform
+      ${open
+              ? 'py-2 [transform:scaleY(1)_rotateX(0deg)] opacity-100 h-auto'
+              : '[transform:scaleY(0)_rotateX(0.01deg)] opacity-0 h-0 overflow-hidden'
+            }
+    `}
         >
           {children}
         </div>
       </div>
+
     </div>
   )
 }

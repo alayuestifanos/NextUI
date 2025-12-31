@@ -59,21 +59,25 @@ export default function RaceCard({ horses, type }: { horses: any[], type?: strin
             {horses.map((horse, index) => (
               <tr
                 key={horse["FeedId"]}
-                className='border-b border-gray-200 text-sm '
+                className='border-b border-gray-200 text-sm px-1 '
               >
-                <td className='px-3 flex items-center gap-2 shrink-0'>
-                  <span className='text-lg text-gray-400 font-bold'>{horse["Draw"]}</span>
-                  <Image
-                    src={images[index]}
-                    alt='this is alt'
-                    width={36}
-                    height={36}
-                    className='shrink-0'
-                  />
+                <td className="align-middle">
+                  <div className="flex items-center gap-2 shrink-0">
+                    <span className="text-lg text-gray-400 font-bold">
+                      {horse["Draw"]}
+                    </span>
+                    <Image
+                      src={images[index]}
+                      alt="this is alt"
+                      width={36}
+                      height={36}
+                      className="shrink-0"
+                    />
+                  </div>
                 </td>
 
                 <td className='w-[10%] '></td>
-                <td className='px-3  font-light text-base text-[#727272] '>{horse["Name"]}</td>
+                <td className='px-3 w-[20%] font-light text-base text-[#727272] '>{horse["Name"]}</td>
                 <td className='w-[70%] '></td>
                 <td className='w-10  text-center '>
                   {horse["Favorite"] && (

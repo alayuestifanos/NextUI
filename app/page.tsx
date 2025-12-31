@@ -5606,7 +5606,7 @@ export default function Home() {
   }
 
   return (
-    <main className='py-6 space-y-4 min-h-screen w-[70%]'>
+    <main className='py-6 min-h-screen w-[70%]'>
       <div className='ml-6 inline-flex overflow-hidden text-xs font-semibold'>
         {['MAIN', 'ALT', 'HEAD TO HEAD', 'SUM'].map((tab, idx) => (
           <button
@@ -5622,18 +5622,20 @@ export default function Home() {
 
 
 
-      {h.map((r) => (
-        <CollapsibleRace
-          key={r["Event"]["ID"]}
-          title={r["Event"]["Race"]["Name"]}
-          subtitle={r["Event"]["ID"]}
-          horses={r["Event"]}
-          type={r["Event"]["type"]}
-          defaultOpen={r["Event"]["type"] === "live"}
-        >
-          <RaceCard horses={r["Event"]["Race"]["Entries"]} type={r["Event"]["type"]} />
-        </CollapsibleRace>
-      ))}
+      <div className='ml-2 mt-2'>
+        {h.map((r) => (
+          <CollapsibleRace
+            key={r["Event"]["ID"]}
+            title={r["Event"]["Race"]["Name"]}
+            subtitle={r["Event"]["ID"]}
+            horses={r["Event"]}
+            type={r["Event"]["type"]}
+            defaultOpen={r["Event"]["type"] === "live"}
+          >
+            <RaceCard horses={r["Event"]["Race"]["Entries"]} type={r["Event"]["type"]} />
+          </CollapsibleRace>
+        ))}
+      </div>
     </main>
   )
 }
