@@ -51,9 +51,8 @@ export default function CollapsibleRace({
   return (
     <div className="overflow-hidden bg-white">
       {/* Header */}
-      <button
-        onClick={() => setOpen(!open)}
-        className={`w-full flex items-start justify-between pl-1 pr-4 py-1
+      <div
+        className={`w-full flex items-start justify-between pl-1 pr-4 py-0.5
           font-semibold text-sm transition-colors border-t border-b border-black/10
           ${
             !open
@@ -66,7 +65,7 @@ export default function CollapsibleRace({
           }
         `}
       >
-        <div className="flex flex-row text-left items-center gap-2">
+        <div className="flex font-bold flex-row text-left items-center gap-2">
           {(type === "live" ||
             horses?.["type"] === "live" ||
             type === "next" ||
@@ -85,13 +84,16 @@ export default function CollapsibleRace({
             </div>
           )}
           <div className="flex flex-col text-left">
-            <span className="uppercase font-normal">{title}</span>
-            <span className="text-xs opacity-90">{subtitle}</span>
+            <span className="uppercase font-bold">{title}</span>
+            <span className="text-xs opacity-90 font-bold">{subtitle}</span>
           </div>
         </div>
 
         {/* Custom Animating Plus / Minus */}
-        <div className="mt-1.5 cursor-pointer">
+        <button
+          onClick={() => setOpen(!open)}
+          className="mt-1.5 cursor-pointer bg-transparent border-none p-0 outline-none focus:outline-none hover:opacity-80 transition-opacity"
+        >
           <AnimatingIcon
             open={open}
             type={
@@ -100,8 +102,8 @@ export default function CollapsibleRace({
                 : type || horses?.["type"]
             }
           />
-        </div>
-      </button>
+        </button>
+      </div>
 
       {/* Content */}
       <div>
